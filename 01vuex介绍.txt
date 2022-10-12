@@ -1,0 +1,34 @@
+总体思想： 定义 --调用
+map辅助函数引入之后 就当成自己组件的方法直接使用即可。方便，牛逼
+
+1.vuex集中式状态管理。把组件的公共数据和方法放在vuex中集中管理
+组件可以显示vuex的state 数据,
+修改公共数据要通过mutations，异步的操作action最后还是要通过mutations
+actions和mutations放的是方法 用于修改数据。
+这样vuex可监控是谁修改啦。
+
+eventbus 发送和接受都要保存数据。
+
+2,vuex初始化  store 仓库
+在main.js 配置好vuex  要先下载vuex
+//1， 引入vuex
+import Vuex from 'vuex'
+Vue.config.productionTip = false
+//,2注册 内部使用Vuex install方法
+Vue.use(Vuex)
+// 3，创建一个仓库 Vuex store  配置对象里写store的state mutationsactiosns
+const store = new Vuex.Store({})
+new Vue({
+  render: h => h(App),
+  // 4，传入Vue实例对象
+  store
+  
+}).$mount('#app')
+
+总体思想：准备好 使用就可
+
+
+
+
+
+
